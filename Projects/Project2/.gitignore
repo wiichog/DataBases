@@ -1,0 +1,10 @@
+/bin
+/GUIProyect/bin
+/GUIProyect/.settings
+/GUIProyecto/resources
+
+.classpath
+.class
+.db
+GUIProyect/resources/Thumbs.db
+GUIProyect/resources/test.pptx
