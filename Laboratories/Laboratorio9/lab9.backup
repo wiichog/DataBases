@@ -1,0 +1,299 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.20
+-- Dumped by pg_dump version 9.2.20
+-- Started on 2017-03-02 18:43:46
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1963 (class 1262 OID 40960)
+-- Dependencies: 1962
+-- Name: ropa; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE ropa IS 'Juan Luis Garcia   14189
+Olga Cobaquil       ';
+
+
+--
+-- TOC entry 1 (class 3079 OID 11727)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1966 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 172 (class 1259 OID 40979)
+-- Name: color; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE color (
+    id_color integer NOT NULL,
+    color text
+);
+
+
+ALTER TABLE public.color OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 40985)
+-- Name: inventario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inventario (
+    id_inventario integer NOT NULL,
+    color_idcolor integer,
+    talla_idtalla integer,
+    marca_idmarca integer,
+    prenda_idprenda integer,
+    descuento boolean,
+    "cantDescuento" numeric,
+    precio numeric
+);
+
+
+ALTER TABLE public.inventario OWNER TO postgres;
+
+--
+-- TOC entry 170 (class 1259 OID 40967)
+-- Name: marca; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE marca (
+    id_marca integer NOT NULL,
+    marca text
+);
+
+
+ALTER TABLE public.marca OWNER TO postgres;
+
+--
+-- TOC entry 169 (class 1259 OID 40961)
+-- Name: prenda; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE prenda (
+    id_prenda integer NOT NULL,
+    prenda text
+);
+
+
+ALTER TABLE public.prenda OWNER TO postgres;
+
+--
+-- TOC entry 171 (class 1259 OID 40973)
+-- Name: talla; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE talla (
+    id_talla integer NOT NULL,
+    talla text
+);
+
+
+ALTER TABLE public.talla OWNER TO postgres;
+
+--
+-- TOC entry 1956 (class 0 OID 40979)
+-- Dependencies: 172
+-- Data for Name: color; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY color (id_color, color) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1957 (class 0 OID 40985)
+-- Dependencies: 173
+-- Data for Name: inventario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inventario (id_inventario, color_idcolor, talla_idtalla, marca_idmarca, prenda_idprenda, descuento, "cantDescuento", precio) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1954 (class 0 OID 40967)
+-- Dependencies: 170
+-- Data for Name: marca; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY marca (id_marca, marca) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1953 (class 0 OID 40961)
+-- Dependencies: 169
+-- Data for Name: prenda; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY prenda (id_prenda, prenda) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1955 (class 0 OID 40973)
+-- Dependencies: 171
+-- Data for Name: talla; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY talla (id_talla, talla) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1836 (class 2606 OID 40994)
+-- Name: id_color; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY color
+    ADD CONSTRAINT id_color PRIMARY KEY (id_color);
+
+
+--
+-- TOC entry 1842 (class 2606 OID 40992)
+-- Name: id_inventario; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inventario
+    ADD CONSTRAINT id_inventario PRIMARY KEY (id_inventario);
+
+
+--
+-- TOC entry 1832 (class 2606 OID 40996)
+-- Name: id_marca; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY marca
+    ADD CONSTRAINT id_marca PRIMARY KEY (id_marca);
+
+
+--
+-- TOC entry 1830 (class 2606 OID 40998)
+-- Name: id_prenda; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY prenda
+    ADD CONSTRAINT id_prenda PRIMARY KEY (id_prenda);
+
+
+--
+-- TOC entry 1834 (class 2606 OID 41000)
+-- Name: id_talla; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY talla
+    ADD CONSTRAINT id_talla PRIMARY KEY (id_talla);
+
+
+--
+-- TOC entry 1837 (class 1259 OID 41024)
+-- Name: fki_inventario_color; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_inventario_color ON inventario USING btree (color_idcolor);
+
+
+--
+-- TOC entry 1838 (class 1259 OID 41012)
+-- Name: fki_inventario_marca; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_inventario_marca ON inventario USING btree (marca_idmarca);
+
+
+--
+-- TOC entry 1839 (class 1259 OID 41006)
+-- Name: fki_inventario_prenda; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_inventario_prenda ON inventario USING btree (prenda_idprenda);
+
+
+--
+-- TOC entry 1840 (class 1259 OID 41018)
+-- Name: fki_inventario_talla; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_inventario_talla ON inventario USING btree (talla_idtalla);
+
+
+--
+-- TOC entry 1846 (class 2606 OID 41019)
+-- Name: inventario_color; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inventario
+    ADD CONSTRAINT inventario_color FOREIGN KEY (color_idcolor) REFERENCES color(id_color);
+
+
+--
+-- TOC entry 1844 (class 2606 OID 41007)
+-- Name: inventario_marca; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inventario
+    ADD CONSTRAINT inventario_marca FOREIGN KEY (marca_idmarca) REFERENCES marca(id_marca);
+
+
+--
+-- TOC entry 1843 (class 2606 OID 41001)
+-- Name: inventario_prenda; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inventario
+    ADD CONSTRAINT inventario_prenda FOREIGN KEY (prenda_idprenda) REFERENCES prenda(id_prenda);
+
+
+--
+-- TOC entry 1845 (class 2606 OID 41013)
+-- Name: inventario_talla; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inventario
+    ADD CONSTRAINT inventario_talla FOREIGN KEY (talla_idtalla) REFERENCES talla(id_talla);
+
+
+--
+-- TOC entry 1965 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2017-03-02 18:43:47
+
+--
+-- PostgreSQL database dump complete
+--
+

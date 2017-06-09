@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<JSChart>
+<dataset type="line">
+<data unit="1" value="25"/>
+<data unit="2" value="15"/>
+<data unit="3" value="35"/>
+<data unit="4" value="15"/>
+<data unit="5" value="55"/>
+<data unit="6" value="25"/>
+<data unit="7" value="15"/>
+<data unit="8" value="35"/>
+<data unit="9" value="15"/>
+<data unit="10" value="55"/>
+<data unit="11" value="15"/>
+<data unit="12" value="55"/>
+</dataset>
+<dataset type="line">
+<data unit="1" value="20"/>
+<data unit="2" value="10"/>
+<data unit="3" value="30"/>
+<data unit="4" value="10"/>
+<data unit="5" value="5"/>
+<data unit="6" value="20"/>
+<data unit="7" value="10"/>
+<data unit="8" value="30"/>
+<data unit="9" value="10"/>
+<data unit="10" value="5"/>
+<data unit="11" value="10"/>
+<data unit="12" value="5"/>
+</dataset>
+</JSChart>
