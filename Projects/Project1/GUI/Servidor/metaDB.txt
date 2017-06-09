@@ -1,0 +1,5 @@
+DATABASES
+
+- hola3 {Tables = 0}
+- ddd {Tables = 1}
+- proyecto {Tables = 6}

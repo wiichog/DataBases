@@ -1,0 +1,104 @@
+TABLA
+
+- factura
+COLUMNAS
+
+- id : INT : 0
+- nombre : CHAR : 20
+- nit : CHAR : 10
+- total : FLOAT : 0
+- comprado_en : DATE : 0
+PRIMARIAS
+
+FORANEAS
+
+CHECKS
+
+___
+
+TABLA
+
+- factura1
+COLUMNAS
+
+- id : INT : 0
+- prueba1 : INT : 0
+- prueba2 : FLOAT : 0
+- nombre : CHAR : 20
+- nit : CHAR : 10
+- total : FLOAT : 0
+- comprado_en : DATE : 0
+PRIMARIAS
+
+FORANEAS
+
+CHECKS
+
+___
+
+TABLA
+
+- usuario
+COLUMNAS
+
+- id : INT : 0
+- nombre : CHAR : 20
+- comision : FLOAT : 0
+PRIMARIAS
+
+FORANEAS
+
+CHECKS
+
+- ch_com : comision, : (comision <= 10.0 )                   
+___
+
+TABLA
+
+- sucursal
+COLUMNAS
+
+- id : INT : 0
+- direccion : CHAR : 40
+- abierta_en : DATE : 0
+PRIMARIAS
+
+- pk_sucursal : id
+FORANEAS
+
+CHECKS
+
+___
+
+TABLA
+
+- pais
+COLUMNAS
+
+- id : INT : 0
+- pais : CHAR : 20
+PRIMARIAS
+
+FORANEAS
+
+CHECKS
+
+___
+
+TABLA
+
+- empleado
+COLUMNAS
+
+- id : INT : 0
+- nombre : CHAR : 20
+- comision : FLOAT : 0
+PRIMARIAS
+
+FORANEAS
+
+CHECKS
+
+- ch_com : comision, : (comision <= 10.0 )                  
+___
+

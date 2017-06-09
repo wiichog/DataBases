@@ -1,0 +1,16 @@
+TABLA
+
+- tablaPrueba
+COLUMNAS
+
+- col1 : INT : 0
+- col2 : FLOAT : 0
+- col3 : CHAR : 6
+PRIMARIAS
+
+FORANEAS
+
+CHECKS
+
+___
+
